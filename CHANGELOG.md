@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/juliabeam/greetings-ci/compare/v0.4.0...v0.5.0) (2024-02-06)
+
+
+### Features
+
+* add testing to pipeline ([d2d29a6](https://github.com/juliabeam/greetings-ci/commit/d2d29a6b3489565ae56ae25445599db456f70177))
+
+
+
 # [0.4.0](https://github.com/juliabeam/greetings-ci/compare/v0.3.0...v0.4.0) (2024-02-06)
 
 

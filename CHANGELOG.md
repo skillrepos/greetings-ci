@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/juliabeam/greetings-ci/compare/v0.2.0...v0.3.0) (2024-02-06)
+
+
+### Features
+
+* upload artifact 2 ([c8233af](https://github.com/juliabeam/greetings-ci/commit/c8233afbcea242690c185c5d66e53bee85a3ef9c))
+
+
+
 # [0.2.0](https://github.com/juliabeam/greetings-ci/compare/v0.1.0...v0.2.0) (2024-02-06)
 
 

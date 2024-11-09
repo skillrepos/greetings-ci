@@ -23,7 +23,7 @@ deploy-stage:
         with: 
           tag_name: v0.0.${{ github.run_number }}
           generate_release_notes: true
-          name: Production
+          name: ${{ github.ref_name }}
           files: |
             build/libs/greetings-ci-0.0.${{ github.run_number }}.jar
 

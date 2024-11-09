@@ -25,6 +25,6 @@ deploy-stage:
           generate_release_notes: true
           name: Production
           files: |
-            greetings-ci-0.0.${{ github.run_number }}.jar
+            build/libs/greetings-ci-0.0.${{ github.run_number }}.jar
 
             

@@ -6,10 +6,10 @@ deploy-prod:
     runs-on: ubuntu-latest
     environment: 
       name: production
-      url: https://github.com/${{ github.repository }}/releases/tag/v${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}
+      url: https://github.com/${{ github.repository }}/releases/tag/v1.0.${{ github.run_number }}
     steps:
     
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           
@@ -17,13 +17,17 @@ deploy-prod:
         uses: actions/download-artifact@v4       
         with:
           name: greetings-jar    
+
+      - name: Change to production version
+        run: >
+          mv build/libs/greetings-ci-0.0.${{ github.run_number }}.jar 
+          build/libs/greetings-ci-1.0.${{ github.run_number }}.jar
         
       - name: GH Release
-        uses: softprops/action-gh-release@v0.1.14
+        uses: softprops/action-gh-release@v2
         with: 
-          tag_name: v${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}
+          tag_name: v1.0.${{ github.run_number }}
           generate_release_notes: true
           name: Production
           files: |
-            CHANGELOG.md
-            greetings-ci-${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}.jar
+            greetings-ci-1.0.${{ github.run_number }}.jar

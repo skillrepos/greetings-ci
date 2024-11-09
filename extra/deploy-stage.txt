@@ -6,25 +6,25 @@ deploy-stage:
     runs-on: ubuntu-latest
     environment: 
       name: staging
-      url: https://github.com/${{ github.repository }}/releases/tag/v${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}    
-    
+      url: https://github.com/${{ github.repository }}/releases/tag/v0.0.${{ github.run_number }}
     steps:
-      - uses: actions/checkout@v3
+    
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-        
+          
       - name: Download candidate artifacts
         uses: actions/download-artifact@v4       
         with:
-          name: greetings-jar  
-    
+          name: greetings-jar    
+        
       - name: GH Release
-        uses: softprops/action-gh-release@v0.1.14
+        uses: softprops/action-gh-release@v2
         with: 
-          tag_name: v${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}
-          prerelease: true
-          draft: true
-          name: ${{ github.ref_name }}
+          tag_name: v1.0.${{ github.run_number }}
+          generate_release_notes: true
+          name: Production
           files: |
-            greetings-ci-${{ needs.build.outputs.artifact-tag || github.event.inputs.myVersion }}.jar
+            greetings-ci-0.0.${{ github.run_number }}.jar
+
             

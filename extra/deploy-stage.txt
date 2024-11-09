@@ -21,7 +21,7 @@ deploy-stage:
       - name: GH Release
         uses: softprops/action-gh-release@v2
         with: 
-          tag_name: v1.0.${{ github.run_number }}
+          tag_name: v0.0.${{ github.run_number }}
           generate_release_notes: true
           name: Production
           files: |
